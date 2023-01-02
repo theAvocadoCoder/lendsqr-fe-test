@@ -1,0 +1,37 @@
+.searchbar_container {
+  form {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    box-sizing: border-box;
+    font-size: 14px;
+    border: 1px solid #21407d33;
+    border-radius: 8px 0 0 8px;
+    padding: 12px 20px;
+    width: clamp(200px, 30vw, 400px);
+  }
+
+  input::placeholder {
+    opacity: 0.2;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  button {
+    box-sizing: border-box;
+    background: #39CDCC;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    padding: 12.5px 21px;
+
+    img {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

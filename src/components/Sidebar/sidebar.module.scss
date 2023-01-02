@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
+
+.sidebar_container {
+  height: 90vh;
+  width: min(100vw, 300px);
+  overflow-y: scroll;
+  font-family: 'Work Sans', sans-serif;
+
+  >{
+    div:not(.switch_org_div) {
+      >{
+        p {
+          padding: 0 30px;
+          text-transform: uppercase;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  a, .switch_org_div {
+    box-sizing: border-box;
+    padding: 0 30px;
+    font-size: 16px;
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    text-decoration: none;
+    color: rgba(33, 63, 125, 0.6);
+    cursor: pointer;
+  }
+
+  a.active {
+    border-left: 3px solid #39CDCC;
+    background-color: rgb(57, 205, 204, 0.06);
+    color: rgba(33, 63, 125, 1);
+  }
+}
+
+.sidebar_container::-webkit-scrollbar {
+  width: 3px;
+}
+ 
+.sidebar_container::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 15px;
+}

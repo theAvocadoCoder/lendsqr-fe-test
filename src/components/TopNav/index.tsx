@@ -8,14 +8,20 @@ import SearchBar from "../SearchBar";
 import topNavStyles from "./topnav.module.scss";
 
 const TopNav = () => {
+  const dropDownRef = React.useRef<HTMLDivElement>(null);
+  const handleDropDown: () => void = () => {
+    const newDisplay: string = dropDownRef.current?.style.display === "flex" ? "none" : "flex";
+    dropDownRef.current && (dropDownRef.current.style.display = newDisplay);
+  }
+
   return (
     <div className={topNavStyles.nav_container}>
-      <div className={topNavStyles.hamburger}>
+      <div className={topNavStyles.hamburger} role="button" onClick={handleDropDown}>
         <div />
         <div />
         <div />
       </div>
-      <div className={topNavStyles.mobile_dropdown}>
+      <div className={topNavStyles.mobile_dropdown} ref={dropDownRef}>
         <div className={topNavStyles.searchbar}>
           <SearchBar />
         </div>

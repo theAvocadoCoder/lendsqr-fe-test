@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
+
+.app_container {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;  
+
+  .outlet {
+    flex: 1;
+    height: 90vh;
+    overflow-y: scroll;
+  }
+}

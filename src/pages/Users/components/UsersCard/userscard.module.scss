@@ -1,0 +1,34 @@
+.userscard_container {
+  background-color: white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 20px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+
+  img {
+    width: 40px;
+  }
+
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #545F7D;
+  }
+
+  span {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #213F7D;
+  }
+}

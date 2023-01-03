@@ -119,7 +119,7 @@ const sidebarData: SidebarData = {
     },
     {
       icon: "audit_logs",
-      title: "",
+      title: "Audit Logs",
       link: "/audit_logs",
     },
   ],

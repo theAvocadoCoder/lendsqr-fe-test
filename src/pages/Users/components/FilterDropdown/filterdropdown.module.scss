@@ -1,0 +1,109 @@
+.filterdropdown_container {
+  width: 270px;
+  position: absolute;
+  top: 440px;
+  left: 75px;
+  z-index: 2;
+  padding-bottom: 40px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 30px 20px;
+    background-color: white;
+    border: 1px solid rgba(84, 95, 125, 0.14);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+
+    >{
+      div:last-of-type {
+        display: flex;
+        gap: 14px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  input, select {
+    border: 1px solid #21407d33;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 6px;
+    color: #545F7D;
+  }
+
+  input::placeholder, select::placeholder {
+    opacity: 0.7;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+  }
+
+  .select_div, .date_div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    input::-webkit-calendar-picker-indicator {
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+    }
+
+    span {
+      position: absolute;
+      right: 6px;
+      top: 12px;
+      background-color: white;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #545F7D;
+
+    p {
+      margin: 0;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  button[type="reset"] {
+    border: 1px solid #545F7D;
+    color: #545F7D;
+  }
+
+  button[type="submit"] {
+    border: 1px solid #39CDCC;
+    background-color: #39CDCC;
+    color: white;
+  }
+}

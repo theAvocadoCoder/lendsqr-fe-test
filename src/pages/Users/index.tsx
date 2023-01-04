@@ -1,14 +1,32 @@
 import React from "react";
 import usersStyles from "./users.module.scss";
 import UsersCard from "./components/UsersCard";
+import FilterDropdown from "./components/FilterDropdown";
+import TableEntry from "./components/TableEntry";
 import usersIcon from "./assets/users.svg";
 import activeUsersIcon from "./assets/active_users.svg";
 import usersWithLoansIcon from "./assets/users_with_loans.svg";
 import usersWithSavingsIcon from "./assets/users_with_savings.svg";
 import filterIcon from "./assets/filter_icon.svg";
-import moreIcon from "./assets/more_icon.svg";
+import dateFormat from "dateformat";
+
+const userData = {
+  orgName: "Lendsqr",
+  firstName: "Adedeji",
+  email: "adedeji@gmail.com",
+  phoneNumber: "12340987456",
+  createdAt: dateFormat(new Date(), "mmm d, yyyy, h:MM TT"),
+  activeStatus: "active",
+  id: 1,
+}
 
 const Users = () => {
+  const filterDropdownDiv = React.useRef<HTMLDivElement>(null);
+
+  function toggleFilterDropdown() {
+    const newDisplay: string = filterDropdownDiv.current?.style.display === "block" ? "none" : "block";
+    filterDropdownDiv.current && (filterDropdownDiv.current.style.display = newDisplay);
+  }
   return (
     <div className={usersStyles.users_container}>
       <h1>Users</h1>
@@ -25,7 +43,7 @@ const Users = () => {
       <div className={usersStyles.table_container}>
         <table>
           <thead>
-            <tr>
+            <tr onClick={toggleFilterDropdown}>
               <th>
                 <div>
                   <p>Organization</p>
@@ -66,68 +84,14 @@ const Users = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>
-                <span className={usersStyles.inactive}>
-                  Inactive
-                </span>
-              </td>
-              <td>
-                <img src={moreIcon} alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>
-                <span className={usersStyles.active}>
-                  Active
-                </span>
-              </td>
-              <td>
-                <img src={moreIcon} alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>
-                <span className={usersStyles.pending}>
-                  Pending
-                </span>
-              </td>
-              <td>
-                <img src={moreIcon} alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>
-                <span className={usersStyles.blacklisted}>
-                  Blacklisted
-                </span>
-              </td>
-              <td>
-                <img src={moreIcon} alt="" />
-              </td>
-            </tr>
+            <TableEntry userData={userData} />
           </tbody>
         </table>
+      </div>
+
+      {/* dropdown */}
+      <div ref={filterDropdownDiv} className={usersStyles.filterdropdown_container}>
+        <FilterDropdown />
       </div>
 
       {/* pagination */}
@@ -135,10 +99,10 @@ const Users = () => {
         <div>
           <p>
             Showing
-            <div>
+            <span>
               100
               <img src="" alt="" />
-            </div>
+            </span>
             <span>
               out of 100
             </span>

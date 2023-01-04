@@ -1,11 +1,16 @@
 
 .users_container {
-  background-color: #e5e5e546;
+  // background-color: #e5e5e546;
   min-height: calc(90vh - 40px);
   padding: 60px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative;
+
+  .filterdropdown_container {
+    display: none;
+  }
 
   h1 {
     font-family: 'Work Sans';
@@ -45,6 +50,7 @@
 
   table {
     border-collapse: collapse;
+    width: 100%;
 
     th {
       padding: 10px clamp(15px, 1vw, 40px);
@@ -70,7 +76,6 @@
       font-size: 14px;
       line-height: 16px;
       color: #545F7D;
-      position: relative;
 
       td {
         padding: 20px 15px;
@@ -81,6 +86,7 @@
           height: 30px;
           line-height: 16px;
           border-radius: 100px;
+          text-transform: capitalize;
         }
       }
 

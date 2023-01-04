@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Lendsqr FrontEnd Engineering Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built using React(Typescript) and SASS as part of the assessment for the role of FrontEnd Engineer at Lendsqr
 
-## Available Scripts
+The project implements [the design](https://www.google.com/url?q=https://www.figma.com/file/ZKILoCoIoy1IESdBpq3GNC/Frontend&sa=D&source=editors&ust=1672752882877881&usg=AOvVaw3GMhLu28szMjeMuGFhY6p4) given by Lendsqr to prospective FrontEnd Engineers.
 
-In the project directory, you can run:
+## About Lendsqr
 
-### `npm start`
+Our Lending-as-a-Service solution powers lenders to launch in the shortest possible time, and scale their digital lending business across multiple channels, at the lowest cost.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We provide our lenders from various industries with a cloud lending platform to make the activities of your LaaS business run smoothly by implementing novel solutions and superior domain expertise. We’re passionate about making lenders succeed.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+With powerful, automated features on Lendsqr, you can easily provide streamlined loan experiences for your borrowers; and access to bank data to enable your lenders to make informed loan decisions.
 
-### `npm test`
+To learn more about Lendsqr's products, pricing or the awesome blog, check out [the website](https://www.lendsqr.com/)!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Components
 
-### `npm run build`
+There are two major global components in this project which appear in most of the major pages: the top navigation component and the sidebar component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Top Navigation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This component was implemented per the design and also made mobile responsive. It features the company logo, a searchbar, a link to the documentation, a clickable notification element and a clickable element for viewing user details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sidebar
 
-### `npm run eject`
+This component was implemented per the design and also made mobile responsive. It features links to various pages on the site (the vast majority of which were not implemented as they fall outside the purview of the assessment), as well as a clickable element for changing organization.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project Pages
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project implemented three pages, per the given design file, and made use of a mock API to simulate requests for user data.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Login Page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This page was implemented per the design but is yet to be given functionality. It is mobile-responsive and features a login form with input for username and email.
 
-## Learn More
+### Users
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This page features the following:
+- Information cards providing basic but relevant statistics about users in the organization.
+- A table displaying the organizations users, their active status as well as other relevant information.
+- A filter dropdown to streamline search within the table.
+- A dropdown to set a user's active status or view thier details
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### User Details
+
+This page features the following:
+- Two cards to display more detailed information on a user than is displayed in the general users table.
+- A button to blacklist the user.
+- A button to activate the user.
+
+
+## Installation
+
+To install the relevant dependencies, simply run `npm install`. It is assumed you have node (version 16 or higher) installed on your local machine.
+
+### Available Scripts
+
+You can find the scripts for running the project in development server, building the app for production and more [here](https://github.com/theAvocadoCoder/lendsqr-fe-test/blob/main/REACT_SCRIPTS.md).
+
+## Prerequisite
+- Node version ^16.0.0
+
+## Deployed Site
+
+If you simply wish to view the deployed site, you can check it out [here](https://kelechi-nwauwa-lendsqr-fe-test.netlify.com).

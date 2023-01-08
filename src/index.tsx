@@ -10,6 +10,12 @@ import ErrorPage from './pages/ErrorPage';
 import Login from './pages/Login';
 import Users from './pages/Users';
 import UserDetails from './pages/UserDetails';
+import DocumentsTab from './pages/UserDetails/components/DocumentsTab';
+import BankDetailsTab from './pages/UserDetails/components/BankDetailsTab';
+import LoansTab from './pages/UserDetails/components/LoansTab';
+import SavingsTab from './pages/UserDetails/components/SavingsTab';
+import AppAndSystemTab from './pages/UserDetails/components/AppAndSystemTab';
+import GeneralDetailsTab from './pages/UserDetails/components/GeneralDetailsTab';
 
 const router = createBrowserRouter([
   {
@@ -18,12 +24,38 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "users",
+        path: "users/",
         element: <Users />,
       },
       {
-        path: "users/:id",
+        path: "users/:id/",
         element: <UserDetails />,
+        children: [
+          {
+            index: true,
+            element: <GeneralDetailsTab />,
+          },
+          {
+            path: "documents/",
+            element: <DocumentsTab />,
+          },
+          {
+            path: "bank-details/",
+            element: <BankDetailsTab />,
+          },
+          {
+            path: "loans/",
+            element: <LoansTab />,
+          },
+          {
+            path: "savings/",
+            element: <SavingsTab />,
+          },
+          {
+            path: "app-and-system/",
+            element: <AppAndSystemTab />,
+          },
+        ]
       },
     ],
   },

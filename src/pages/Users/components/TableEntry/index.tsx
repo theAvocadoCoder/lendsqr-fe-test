@@ -40,7 +40,7 @@ const TableEntry = ({ userData }: { userData: userDataProp }) => {
         <img src={moreIcon} alt="" />
 
         <div ref={dropdownDiv} className={tableEntryStyles.dropdown_container}>
-          <NavLink to={`/users/${userData.id}`}>
+          <NavLink to={`/users/${userData.id}/`}>
             <img src={viewDetaiilsIcon} alt="" />
             <span>View Details</span>
           </NavLink>

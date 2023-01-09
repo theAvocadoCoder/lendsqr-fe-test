@@ -8,7 +8,7 @@ import "./index.css";
 import App from "./App";
 import ErrorPage from './pages/ErrorPage';
 import Login from './pages/Login';
-import Users from './pages/Users';
+import Users, {loader as usersLoader} from './pages/Users';
 import UserDetails from './pages/UserDetails';
 import DocumentsTab from './pages/UserDetails/components/DocumentsTab';
 import BankDetailsTab from './pages/UserDetails/components/BankDetailsTab';
@@ -26,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "users/",
         element: <Users />,
+        loader: usersLoader,
       },
       {
         path: "users/:id/",

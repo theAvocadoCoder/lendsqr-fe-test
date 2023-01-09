@@ -79,6 +79,7 @@
 
       td {
         padding: 20px 15px;
+        white-space: nowrap;
 
         span {
           padding: 6.5px 16px;
@@ -126,4 +127,72 @@
   border-radius: 20px;
   margin: 3px;
   width: 10px;
+}
+
+.paginationcontainer_div {
+  display: flex;
+  justify-content: space-between;
+
+  >{
+    div:first-child p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      color: #545F7D;
+
+      span {
+        background: rgba(33, 63, 125, 0.1);
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        padding: 7px 12px;
+      }
+    }
+
+    div:last-child {
+      display: flex;
+    }
+  }
+}
+
+.paginate_container {
+  display: flex;
+  justify-content: space-between;
+  width: 262px;
+
+  li {
+    list-style: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #545F7D;
+    opacity: 0.6;
+  }
+
+  .paginate_next, .paginate_previous {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(33, 63, 125, 0.1);
+    border-radius: 4px;
+    opacity: 0.6;
+  }
+
+  .paginate_next a {
+    content: url("./assets/paginate_next.svg");
+  }
+
+  .paginate_previous a {
+    content: url("./assets/paginate_next.svg");
+    transform: rotate(-180deg);
+  }
+
+  .paginate_active {
+    font-weight: 500;
+    opacity: 1;
+  }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import dateFormat from "dateformat";
 import axios, { AxiosResponse } from "axios";
+import ReactPaginate from "react-paginate";
 
 import usersStyles from "./users.module.scss";
 
@@ -14,6 +15,7 @@ import activeUsersIcon from "./assets/active_users.svg";
 import usersWithLoansIcon from "./assets/users_with_loans.svg";
 import usersWithSavingsIcon from "./assets/users_with_savings.svg";
 import filterIcon from "./assets/filter_icon.svg";
+import arrowIcon from "./assets/arrow_icon.svg";
 
 interface UserDataProp {
   orgName: string,
@@ -83,7 +85,6 @@ function numSplitter(num: number | string): number | string {
   numstr = numstr.split("")
     .filter(char => (
       Number(char)
-      // char !== " "
     ))
     .join("")
 
@@ -112,23 +113,38 @@ export async function loader() {
 
 const Users = () => {
   const users: UserDataProp[] = useLoaderData() as UserDataProp[];
-  const filterDropdownDiv = React.useRef<HTMLDivElement>(null);
-  console.log(users);
 
+  const [pageOffset, setPageOffset] = React.useState(0);
+  const [itemsPerPage, setItemsPerPage] = React.useState(9);
+  
+  const endOffset = pageOffset + itemsPerPage;
+  console.log(`Loading items from ${pageOffset} to ${endOffset}`);
+  const pageCount = Math.ceil(users.length / itemsPerPage);
+
+  const filterDropdownDiv = React.useRef<HTMLDivElement>(null);
   function toggleFilterDropdown() {
     const newDisplay: string = filterDropdownDiv.current?.style.display === "block" ? "none" : "block";
     filterDropdownDiv.current && (filterDropdownDiv.current.style.display = newDisplay);
   }
+
+  const handlePageClick = (event: Event & { selected: number }) => {
+    const newOffset = (event.selected * itemsPerPage) % users.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setPageOffset(newOffset);
+  };
+
   return (
     <div className={usersStyles.users_container}>
       <h1>Users</h1>
 
       {/* cards */}
       <div className={usersStyles.cards_container}>
-        <UsersCard title="Users" value="2,453" img={usersIcon} />
-        <UsersCard title="Active Users" value="2,453" img={activeUsersIcon} />
-        <UsersCard title="Users with Loans" value="12,453" img={usersWithLoansIcon} />
-        <UsersCard title="Users with Savings" value="102,453" img={usersWithSavingsIcon} />
+        <UsersCard title="Users" value={users.length} img={usersIcon} />
+        <UsersCard title="Active Users" value={users.filter(u=>u.activeStatus === "active").length} img={activeUsersIcon} />
+        <UsersCard title="Users with Loans" value={users.filter(u=>u.activeStatus === "blacklisted").length} img={usersWithLoansIcon} />
+        <UsersCard title="Users with Savings" value={users.filter(u=>u.activeStatus === "inactive").length} img={usersWithSavingsIcon} />
       </div>
 
       {/* table */}
@@ -177,8 +193,8 @@ const Users = () => {
           </thead>
           <tbody>
             {
-              users.map((user, index) => (
-                <TableEntry key={index} userData={user} />
+              users.slice(pageOffset, endOffset).map((user) => (
+                <TableEntry key={user.id} userData={user} />
               ))
             }
           </tbody>
@@ -191,20 +207,31 @@ const Users = () => {
       </div>
 
       {/* pagination */}
-      <div>
+      <div className={usersStyles.paginationcontainer_div}>
         <div>
           <p>
-            Showing
-            <span>
-              100
-              <img src="" alt="" />
+            Showing &nbsp;
+            <span> {itemsPerPage}
+              <img src={arrowIcon} alt="" />
             </span>
-            <span>
-              out of 100
-            </span>
+            &nbsp; out of {users.length}
           </p>
         </div>
-        <div></div>
+        <div>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=" "
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={2}
+            marginPagesDisplayed={2}
+            pageCount={pageCount}
+            previousLabel=" "
+            containerClassName={usersStyles.paginate_container}
+            nextClassName={(endOffset === users.length) ? `${usersStyles.paginate_next}` : `${usersStyles.paginate_next} ${usersStyles.paginate_active}`}
+            previousClassName={(pageOffset === 0) ? `${usersStyles.paginate_previous}` : `${usersStyles.paginate_previous} ${usersStyles.paginate_active}`}
+            activeClassName={usersStyles.paginate_active}
+          />
+        </div>
       </div>
     </div>
   )

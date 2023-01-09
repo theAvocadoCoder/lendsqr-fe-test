@@ -12,7 +12,7 @@ interface userDataProp {
   email: string,
   phoneNumber: number | string,
   createdAt: string,
-  activeStatus: string,
+  activeStatus: "active" | "blacklisted" | "pending" | "inactive",
   id: number | string,
 }
 

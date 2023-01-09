@@ -115,6 +115,7 @@ const Users = () => {
   const users: UserDataProp[] = useLoaderData() as UserDataProp[];
 
   const [pageOffset, setPageOffset] = React.useState(0);
+  // eslint-disable-next-line
   const [itemsPerPage, setItemsPerPage] = React.useState(9);
   
   const endOffset = pageOffset + itemsPerPage;

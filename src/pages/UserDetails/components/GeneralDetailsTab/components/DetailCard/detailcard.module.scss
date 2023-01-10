@@ -1,9 +1,12 @@
 .detailcard_container {
-  max-height: 41px !important;
   display: flex;
+  max-width: 100%;
   flex-direction: column;
   gap: 8px;
-  // white-space: nowrap;
+
+  p {
+    max-width: 100%;
+  }
 
   p:first-child {
     margin: 0;
@@ -19,5 +22,7 @@
     font-size: 16px;
     line-height: 19px;
     color: #545F7D;
+    // word-wrap: break-word;
+    word-break: break-word;
   }
 }

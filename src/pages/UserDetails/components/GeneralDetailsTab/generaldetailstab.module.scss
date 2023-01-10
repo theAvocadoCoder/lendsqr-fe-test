@@ -27,7 +27,15 @@
   .section_div:nth-child(3) {
     >{
       div {
-        grid-template-columns: repeat(3, minmax(100px, 140px));
+        grid-template-columns: repeat(1, minmax(100px, 140px));
+
+        @media (min-width: 768px) {
+          grid-template-columns: repeat(2, minmax(100px, 140px));
+        }
+  
+        @media (min-width: 1024px) {
+          grid-template-columns: repeat(3, minmax(100px, 140px));
+        }
       }
     }
   }
@@ -35,7 +43,15 @@
   .section_div:nth-child(4) {
     >{
       div {
-        grid-template-columns: repeat(4, minmax(100px, auto));
+        grid-template-columns: repeat(1, minmax(100px, auto));
+
+        @media (min-width: 768px) {
+          grid-template-columns: repeat(2, minmax(100px, auto));
+        }
+  
+        @media (min-width: 1280px) {
+          grid-template-columns: repeat(4, minmax(100px, auto));
+        }
       }
     }
   }

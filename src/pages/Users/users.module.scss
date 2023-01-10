@@ -2,11 +2,19 @@
 .users_container {
   // background-color: #e5e5e546;
   min-height: calc(90vh - 40px);
-  padding: 60px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   position: relative;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 60px;
+  }
 
   .filterdropdown_container {
     display: none;
@@ -22,10 +30,32 @@
   }
 
   .cards_container {
-    display: flex;
-    width: 100%;
-    overflow-x: scroll;
-    gap: 26px;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(128px, auto));
+    grid-template-rows: repeat(auto-fit, auto);
+    column-gap: 26px;
+    row-gap: 30px;
+    width: auto;
+
+    >{
+      div {
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(128px, auto));
+    }
+
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, minmax(128px, auto));
+
+      >{
+        div {
+          align-items: flex-start;
+        }
+      }
+    }
   }
 
   .cards_container::-webkit-scrollbar {
@@ -69,6 +99,10 @@
         line-height: 14px;
         color: #545F7D;
       }
+
+      p,img {
+        cursor: pointer;
+      }
     }
 
     tbody tr {
@@ -91,24 +125,10 @@
         }
       }
 
-      .inactive {
-        color: rgba(84, 95, 125, 1);
-        background-color: rgba(84, 95, 125, 0.06);
-      }
-
-      .pending {
-        color: rgba(233, 178, 0, 1);
-        background-color: rgba(233, 178, 0, 0.06);
-      }
-
-      .active {
-        color: rgba(57, 205, 98, 1);
-        background-color: rgba(57, 205, 98, 0.06);
-      }
-
-      .blacklisted {
-        color: rgba(228, 3, 59, 1);
-        background-color: rgba(228, 3, 59, 0.06);
+      td:last-child {
+        img{
+          cursor: pointer;
+        }
       }
     }
 
@@ -132,6 +152,11 @@
 .paginationcontainer_div {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width:768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   >{
     div:first-child p {
@@ -160,6 +185,8 @@
   display: flex;
   justify-content: space-between;
   width: 262px;
+  margin: 0;
+  padding: 0;
 
   li {
     list-style: none;

@@ -12,7 +12,7 @@
       div {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(128px, auto));
-        grid-template-rows: repeat(auto-fit, 41px);
+        grid-template-rows: repeat(auto-fit, auto);
         column-gap: 100px;
         row-gap: 30px;
         width: auto;
@@ -35,7 +35,7 @@
   .section_div:nth-child(4) {
     >{
       div {
-        grid-template-columns: repeat(4, minmax(100px, 140px));
+        grid-template-columns: repeat(4, minmax(100px, auto));
       }
     }
   }

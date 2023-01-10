@@ -59,6 +59,12 @@
     color: rgba(33, 63, 125, 1);
   }
 
+  a.pending {
+    border-left: 3px solid #c8cece;
+    background-color: rgb(199, 207, 207, 0.06);
+    color: rgb(109, 112, 117);
+  }
+
   .footer_div {
     border-top: 1px solid rgb(33, 63, 125, 0.1);
     margin-top: 55px;

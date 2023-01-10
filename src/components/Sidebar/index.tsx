@@ -44,7 +44,7 @@ const Sidebar = ({ mobileNavIsOpen, setMobileNavIsOpen }: MobileSectionProps) =>
         <p>Switch Organization</p>
         <img src={arrowIcon} alt="arrow icon" />
       </div>
-      <NavLink className={({ isActive }) => isActive ? sidebarStyles.active : ""} to="/" onClick={toggleMobileNavIsOpen}>
+      <NavLink className={({ isActive, isPending }) => isActive ? sidebarStyles.active : isPending ? sidebarStyles.pending : ""} to="/" onClick={toggleMobileNavIsOpen}>
         <img src={dashboardIcon} alt="icon for dashboard" />
         <p>Dashboard</p>
       </NavLink>
@@ -54,7 +54,7 @@ const Sidebar = ({ mobileNavIsOpen, setMobileNavIsOpen }: MobileSectionProps) =>
             <p>{title}</p>
             {
               [customers, business, settings][index].map((data, index) => (
-                <NavLink className={({ isActive }) => isActive ? sidebarStyles.active : ""} to={data.link} key={index} onClick={toggleMobileNavIsOpen}>
+                <NavLink className={({ isActive, isPending }) => isActive ? sidebarStyles.active : isPending ? sidebarStyles.pending : ""} to={data.link} key={index} onClick={toggleMobileNavIsOpen}>
                   <img src={require(`./assets/${data.icon}.svg`)} alt={`icon for ${data.title}`} />
                   <p>{data.title}</p>
                 </NavLink>
@@ -64,7 +64,7 @@ const Sidebar = ({ mobileNavIsOpen, setMobileNavIsOpen }: MobileSectionProps) =>
         ))
       }
       <div className={sidebarStyles.footer_div}>
-        <NavLink className={({ isActive }) => isActive ? sidebarStyles.active : ""} to="/login">
+        <NavLink className={({ isActive, isPending }) => isActive ? sidebarStyles.active : isPending ? sidebarStyles.pending : ""} to="/login">
           <img src={logoutIcon} alt="icon for logout" />
           <p>Logout</p>
         </NavLink>

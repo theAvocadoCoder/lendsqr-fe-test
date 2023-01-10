@@ -22,7 +22,10 @@
     font-size: 16px;
     line-height: 19px;
     color: #545F7D;
-    // word-wrap: break-word;
     word-break: break-word;
+  }
+
+  @media (min-width: 1280px) {
+    white-space: nowrap;
   }
 }

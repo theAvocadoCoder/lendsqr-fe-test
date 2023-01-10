@@ -19,7 +19,7 @@ import arrowIcon from "./assets/arrow_icon.svg";
 
 interface UserDataProp {
   orgName: string,
-  firstName: string,
+  userName: string,
   email: string,
   phoneNumber: number | string,
   createdAt: string,
@@ -100,7 +100,7 @@ export async function loader() {
     let activeStatus: "active" | "blacklisted" | "pending" | "inactive" = statuses[Math.floor(Math.random()*10) % 4];
     userDataArray.push({
       orgName: orgSplitter(user.orgName),
-      firstName: user.profile.firstName,
+      userName: user.userName,
       email: user.email.toLowerCase(),
       phoneNumber: numSplitter(user.phoneNumber),
       createdAt: dateFormat(new Date(user.createdAt), "mmm d, yyyy, h:MM TT"),
@@ -119,7 +119,6 @@ const Users = () => {
   const [itemsPerPage, setItemsPerPage] = React.useState(9);
   
   const endOffset = pageOffset + itemsPerPage;
-  console.log(`Loading items from ${pageOffset} to ${endOffset}`);
   const pageCount = Math.ceil(users.length / itemsPerPage);
 
   const filterDropdownDiv = React.useRef<HTMLDivElement>(null);

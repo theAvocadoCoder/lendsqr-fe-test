@@ -8,7 +8,7 @@ import moreIcon from "../../assets/more_icon.svg";
 
 interface userDataProp {
   orgName: string,
-  firstName: string,
+  userName: string,
   email: string,
   phoneNumber: number | string,
   createdAt: string,
@@ -27,7 +27,7 @@ const TableEntry = ({ userData }: { userData: userDataProp }) => {
   return (
     <tr>
       <td>{userData.orgName}</td>
-      <td>{userData.firstName}</td>
+      <td>{userData.userName}</td>
       <td>{userData.email}</td>
       <td>{userData.phoneNumber}</td>
       <td>{userData.createdAt}</td>

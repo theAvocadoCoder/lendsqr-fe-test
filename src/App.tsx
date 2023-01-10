@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import TopNav from "./components/TopNav";
 import Sidebar from "./components/Sidebar";
 import appStyles from "./app.module.scss";
@@ -11,6 +11,7 @@ export type MobileSectionProps = {
 
 function App() {
   const [mobileNavIsOpen, setMobileNavIsOpen] = React.useState(false);
+  const navigation = useNavigation();
   return (
     <div className="App">
       <div className={appStyles.app_container}>
@@ -20,7 +21,7 @@ function App() {
         <div className={appStyles.sidebar}>
           <Sidebar mobileNavIsOpen={mobileNavIsOpen} setMobileNavIsOpen={setMobileNavIsOpen} />
         </div>
-        <div className={appStyles.outlet}>
+        <div className={navigation.state === "loading" ? appStyles.loading : appStyles.outlet}>
           <Outlet />
         </div>
       </div>

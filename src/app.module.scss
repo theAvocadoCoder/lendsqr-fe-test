@@ -15,4 +15,13 @@
     overflow-y: scroll;
     background-color: #e5e5e546;
   }
+
+  .loading {
+    flex: 1;
+    height: 90vh;
+    background-image: url("./assets/rolling_loader.svg");
+    background-color: #1527272c;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
